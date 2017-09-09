@@ -2,12 +2,18 @@ package com.linmw.step.modules.system.mapper;
 
 import com.linmw.step.modules.system.entity.User;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface UserMapper {
+    int deleteByPrimaryKey(Long id);
 
+    int insert(User record);
 
-    @Select("select * from t_user where id = #{id}")
-    User getOne(long id);
+    int insertSelective(User record);
+
+    User selectByPrimaryKey(Long id);
+
+    int updateByPrimaryKeySelective(User record);
+
+    int updateByPrimaryKey(User record);
 }

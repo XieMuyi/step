@@ -22,6 +22,20 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+
+		<!--  MyBatis Generator  -->
+		<!--  生成文件存放在哪个模块  base|business|system -->
+		<module.name>system</module.name>
+		<make.file.modules>com.linmw.step.modules.${module.name}</make.file.modules>
+		<make.mappering.modules>${module.name}</make.mappering.modules>
+		<!--  Java接口和实体类  -->
+		<targetJavaProject>src/main/java</targetJavaProject>
+		<targetMapperPackage>${make.file.modules}.mapper</targetMapperPackage>
+		<targetModelPackage>${make.file.modules}.entity</targetModelPackage>
+		<!--  XML生成路径  -->
+		<targetResourcesProject>src/main/resources/mapper/</targetResourcesProject>
+		<targetXMLPackage>${make.mappering.modules}</targetXMLPackage>
+		<!--  MyBatis Generator  -->
 	</properties>
 
 	<dependencies>
@@ -53,7 +67,35 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.mybatis.generator</groupId>
+			<artifactId>mybatis-generator-core</artifactId>
+			<version>1.3.5</version>
+			<scope>compile</scope>
+			<optional>true</optional>
+		</dependency>
+
+
+		<!-- 忽略自带的日志框架. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- log4j. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j</artifactId>
+			<version>1.3.8.RELEASE</version>
+		</dependency>
 	</dependencies>
+
+
 
 	<build>
 		<plugins>
@@ -61,6 +103,30 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<!--  MyBatis代码生成器插件  -->
+			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<version>1.3.5</version>
+				<configuration>
+					<configurationFile>src/main/resources/generator/generatorConfig.xml</configurationFile>
+					<overwrite>true</overwrite>
+					<verbose>true</verbose>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>5.1.39</version>
+					</dependency>
+					<dependency>
+						<groupId>tk.mybatis</groupId>
+						<artifactId>mapper</artifactId>
+						<version>3.3.9</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<!--  MyBatis代码生成器插件  -->
 		</plugins>
 	</build>
 

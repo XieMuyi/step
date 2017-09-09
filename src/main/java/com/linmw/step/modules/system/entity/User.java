@@ -1,94 +1,103 @@
 package com.linmw.step.modules.system.entity;
 
 public class User {
-  private Long id;
-  private String login_name;
-  private String password;
-  private String email;
-  private String description;
-  private String nickname;
-  private String status;
-  private String or_logon;
-  private String security_password;
-  private String salt;
+    private Long id;
 
-  public Long getId() {
-    return id;
-  }
+    private String loginName;
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    private String password;
 
-  public String getLogin_name() {
-    return login_name;
-  }
+    private String email;
 
-  public void setLogin_name(String login_name) {
-    this.login_name = login_name;
-  }
+    private String description;
 
-  public String getPassword() {
-    return password;
-  }
+    private String nickname;
 
-  public void setPassword(String password) {
-    this.password = password;
-  }
+    private String status;
 
-  public String getEmail() {
-    return email;
-  }
+    private String orLogon;
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
+    private String securityPassword;
 
-  public String getDescription() {
-    return description;
-  }
+    private String salt;
 
-  public void setDescription(String description) {
-    this.description = description;
-  }
+    public Long getId() {
+        return id;
+    }
 
-  public String getNickname() {
-    return nickname;
-  }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-  public void setNickname(String nickname) {
-    this.nickname = nickname;
-  }
+    public String getLoginName() {
+        return loginName;
+    }
 
-  public String getStatus() {
-    return status;
-  }
+    public void setLoginName(String loginName) {
+        this.loginName = loginName == null ? null : loginName.trim();
+    }
 
-  public void setStatus(String status) {
-    this.status = status;
-  }
+    public String getPassword() {
+        return password;
+    }
 
-  public String getOr_logon() {
-    return or_logon;
-  }
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
+    }
 
-  public void setOr_logon(String or_logon) {
-    this.or_logon = or_logon;
-  }
+    public String getEmail() {
+        return email;
+    }
 
-  public String getSecurity_password() {
-    return security_password;
-  }
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
 
-  public void setSecurity_password(String security_password) {
-    this.security_password = security_password;
-  }
+    public String getDescription() {
+        return description;
+    }
 
-  public String getSalt() {
-    return salt;
-  }
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
+    }
 
-  public void setSalt(String salt) {
-    this.salt = salt;
-  }
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname == null ? null : nickname.trim();
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
+    }
+
+    public String getOrLogon() {
+        return orLogon;
+    }
+
+    public void setOrLogon(String orLogon) {
+        this.orLogon = orLogon == null ? null : orLogon.trim();
+    }
+
+    public String getSecurityPassword() {
+        return securityPassword;
+    }
+
+    public void setSecurityPassword(String securityPassword) {
+        this.securityPassword = securityPassword == null ? null : securityPassword.trim();
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt == null ? null : salt.trim();
+    }
 }

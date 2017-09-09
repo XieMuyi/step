@@ -12,7 +12,7 @@ public class UserService {
     private UserMapper userMapper;
 
     public User getOne(long id){
-        return userMapper.getOne(id);
+        return userMapper.selectByPrimaryKey(id);
     }
 
 }
